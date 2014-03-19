@@ -1,0 +1,1 @@
+curl --silent "http://weather.yahooapis.com/forecastrss?p=USVA0206&u=f" | grep -e "Forecast:" -A 2 | tail -n 2 | sed -e 's/<br \/>//' -e 's/<BR \/>//' | sed "s/\(.*\)\.\ \(.*\)/\1\?\2/" | tr "?" "\n" | sed "s/\?\(.*\)/\\1/"
